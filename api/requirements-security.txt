@@ -1,0 +1,6 @@
+# requirements-security.txt
+# Security dependencies for Valorix backend
+
+bandit
+safety
+pip-audit
