@@ -1,0 +1,35 @@
+{
+  "name": "integrated-evaluation-app-monorepo",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Monorepo for Integrated Evaluation App (frontend: src/, backend: api/)",
+  "scripts": {
+    "dev:all": "concurrently \"npm --prefix src run dev\" \"cd api && uvicorn core.main:app --reload\"",
+    "lint:all": "npm --prefix src run lint && cd api && flake8 .",
+    "test:all": "npm --prefix src run test && cd api && pytest",
+    "build:all": "npm --prefix src run build",
+    "format:all": "npm --prefix src run format && cd api && black .",
+    "setup": "bash setup_env.sh",
+    "install:all": "npm --prefix src install && cd api && pip install -r requirements.txt",
+    "check:connectivity": "curl -f http://localhost:8000/health && curl -f http://localhost:3000/api/health || echo 'Services not ready'",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "docker:logs": "docker-compose logs -f"
+  },
+  "devDependencies": {
+    "@types/node": "22.15.29",
+    "@types/react": "19.1.6",
+    "black": "^0.3.0",
+    "concurrently": "^8.2.0",
+    "eslint": "^9.27.0",
+    "flake8": "^0.0.1",
+    "prettier": "^3.5.3",
+    "typescript": "5.8.3"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.4"
+  }
+}
