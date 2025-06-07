@@ -1,0 +1,8 @@
+# requirements-test.txt
+# Test dependencies for Valorix backend
+
+pytest
+pytest-asyncio
+pytest-cov
+pytest-mock
+httpx
